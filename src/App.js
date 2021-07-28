@@ -9,17 +9,15 @@ export default function App() {
     setSelectedGenre(genre);
   };
 
-  console.log(selectedGenre);
-
   return (
     <div className="App">
       <nav className="navigation">
         <p>TR</p>
       </nav>
-      <div className="hero">
+      <header className="hero">
         <h1>TV Shows!</h1>
         <p>Hi! Check out my tv shows recommendations below.</p>
-      </div>
+      </header>
 
       <div className="primary-container">
         <div className="primary-buttons">
@@ -28,6 +26,7 @@ export default function App() {
               <button
                 id="genre-button"
                 onClick={() => handleSelectedGenre(genre)}
+                key={genre}
               >
                 {genre}
               </button>
@@ -39,7 +38,7 @@ export default function App() {
           <ul id="shows-list-ul">
             {showsList[selectedGenre].map((show) => {
               return (
-                <li id="show">
+                <li id="show" key={show.name}>
                   <div id="show-poster">
                     <img src={show.poster} alt={show.name} />
 
